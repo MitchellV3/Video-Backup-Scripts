@@ -2,51 +2,138 @@
 
 ## YouTube Video/YouTube Channel [--no-warnings, --downloader aria2c, --concurrent-fragments "5"]
 
-yt-dlp -f "bv+ba/b" -P "E:/Video/" -o "%(uploader)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --download-archive "E:/Video/Archive.txt" --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json --write-info-json -o "infojson:%(uploader)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-subs -o "subtitle:%(uploader)s/[Archive]/Subtitles/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-link -o "link:%(uploader)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-description -o "description:%(uploader)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-thumbnail -o "thumbnail:%(uploader)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "chapter:%(uploader)s/[Archive]/Chapters/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_description:(uploader)s/[Archive]/Descriptions/Playlist Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_thumbnail:(uploader)s/[Archive]/Thumbnails/Playlist Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_infojson:(uploader)s/[Archive]/Info/Playlist Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" --remux-video "mp4/aac" --merge-output-format "mp4" --downloader aria2c --sponsorblock-mark all https://www.youtube.com/channel/UCuSmfyt4Z7KNdbqLO7uPMBA/videos
+yt-dlp ^
+    -f "bv+ba/b" ^
+    -P "E:/Video/" ^
+    -o "%(uploader)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --download-archive "E:/Video/Archive.txt" ^
+    --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
+    --write-info-json -o "infojson:%(uploader)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-subs -o "subtitle:%(uploader)s/[Archive]/Subtitles/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-link -o "link:%(uploader)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-description -o "description:%(uploader)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:%(uploader)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "chapter:%(uploader)s/[Archive]/Chapters/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_description:(uploader)s/[Archive]/Descriptions/Playlist Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_thumbnail:(uploader)s/[Archive]/Thumbnails/Playlist Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_infojson:(uploader)s/[Archive]/Info/Playlist Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" ^
+    --remux-video "mp4/aac" --merge-output-format "mp4" ^
+    --downloader aria2c ^
+    --sponsorblock-mark all ^
+https://www.youtube.com/channel/UCuSmfyt4Z7KNdbqLO7uPMBA/videos
 
 ## YouTube Playlist - Multiple Channels (ie. "Favorites" Playlist) [--no-warnings]
 
-yt-dlp -f "bv+ba/b" -P "E:/Video/" -o "[Playlists]/%(playlist)s/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --download-archive "E:/Video/Archive.txt" --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json --write-info-json -o "infojson:[Playlists]/%(playlist)s/[Archive]/Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-subs -o "subtitle:[Playlists]/%(playlist)s/[Archive]/Subtitles/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" --write-link -o "link:[Playlists]/%(playlist)s/[Archive]/Links/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" --write-description -o "description:[Playlists]/%(playlist)s/[Archive]/Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-thumbnail -o "thumbnail:[Playlists]/%(playlist)s/[Archive]/Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "chapter:[Playlists]/%(playlist)s/[Archive]/Chapters/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_description:[Playlists]/%(playlist)s/[Archive]/Descriptions/Playlist Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_thumbnail:[Playlists]/%(playlist)s/[Archive]/Thumbnails/Playlist Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_infojson:[Playlists]/%(playlist)s/[Archive]/Info/Playlist Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" --remux-video "mp4/aac" --merge-output-format "mp4" --concurrent-fragments "5" --sponsorblock-mark all PL5m8RFaxdaXbcp8RpVWwbYNPnU5bITls1
+yt-dlp ^
+    -f "bv+ba/b" ^
+    -P "E:/Video/" ^
+    -o "[Playlists]/%(playlist)s/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --download-archive "E:/Video/Archive.txt" ^
+    --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
+    --write-info-json -o "infojson:[Playlists]/%(playlist)s/[Archive]/Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-subs -o "subtitle:[Playlists]/%(playlist)s/[Archive]/Subtitles/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" ^
+    --write-link -o "link:[Playlists]/%(playlist)s/[Archive]/Links/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" ^
+    --write-description -o "description:[Playlists]/%(playlist)s/[Archive]/Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:[Playlists]/%(playlist)s/[Archive]/Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "chapter:[Playlists]/%(playlist)s/[Archive]/Chapters/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_description:[Playlists]/%(playlist)s/[Archive]/Descriptions/Playlist Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_thumbnail:[Playlists]/%(playlist)s/[Archive]/Thumbnails/Playlist Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_infojson:[Playlists]/%(playlist)s/[Archive]/Info/Playlist Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" ^
+    --playlist-reverse ^
+    --remux-video "mp4/aac" --merge-output-format "mp4" ^
+    --downloader aria2c ^
+    --sponsorblock-mark all ^
+https://www.youtube.com/channel/UCuSmfyt4Z7KNdbqLO7uPMBA/videos
 
 ## YouTube Playlist - One Channel [--no-warnings]
 
-yt-dlp -f "bv+ba/b" -P "E:/Video/" -o "%(uploader)s/%(playlist)s/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --download-archive "E:/Video/Archive.txt" --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json --write-info-json -o "infojson:%(uploader)s/%(playlist)s/[Archive]/Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-subs -o "subtitle:%(uploader)s/%(playlist)s/[Archive]/Subtitles/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" --write-link -o "link:%(uploader)s/%(playlist)s/[Archive]/Links/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" --write-description -o "description:%(uploader)s/%(playlist)s/[Archive]/Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-thumbnail -o "thumbnail:%(uploader)s/%(playlist)s/[Archive]/Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "chapter:%(uploader)s/%(playlist)s/[Archive]/Chapters/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_description:%(uploader)s/%(playlist)s/[Archive]/Descriptions/Playlist Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_thumbnail:%(uploader)s/%(playlist)s/[Archive]/Thumbnails/Playlist Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" -o "pl_infojson:%(uploader)s/%(playlist)s/[Archive]/Info/Playlist Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" --remux-video "mp4/aac" --merge-output-format "mp4" --concurrent-fragments "5" --sponsorblock-mark all PL5m8RFaxdaXbcp8RpVWwbYNPnU5bITls1
+yt-dlp ^
+    -f "bv+ba/b" ^
+    -P "E:/Video/" ^
+    -o "%(uploader)s/%(playlist)s/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --download-archive "E:/Video/Archive.txt" ^
+    --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
+    --write-info-json -o "infojson:%(uploader)s/%(playlist)s/[Archive]/Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-subs -o "subtitle:%(uploader)s/%(playlist)s/[Archive]/Subtitles/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" ^
+    --write-link -o "link:%(uploader)s/%(playlist)s/[Archive]/Links/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s (%(upload_date>%Y/%m/%d)s) [%(id)s].%(ext)s" ^
+    --write-description -o "description:%(uploader)s/%(playlist)s/[Archive]/Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:%(uploader)s/%(playlist)s/[Archive]/Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "chapter:%(uploader)s/%(playlist)s/[Archive]/Chapters/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_description:%(uploader)s/%(playlist)s/[Archive]/Descriptions/Playlist Descriptions/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_thumbnail:%(uploader)s/%(playlist)s/[Archive]/Thumbnails/Playlist Thumbnails/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "pl_infojson:%(uploader)s/%(playlist)s/[Archive]/Info/Playlist Info/%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" ^
+    --remux-video "mp4/aac" --merge-output-format "mp4" ^
+    --downloader aria2c ^
+    --sponsorblock-mark all ^
+https://www.youtube.com/playlist?list=PLsMtUWKCmBPRFzqglpk4YQlNFy8wzSXBN
 
 ## YouTube Livestream VOD/Live [--no-warnings]
 
-yt-dlp -f "bv+ba/b" -P "E:/Video/" -o "%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --download-archive "E:/Video/Archive.txt" --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json --write-info-json -o "infojson:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-link -o "link:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-description -o "description:%(uploader)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-thumbnail -o "thumbnail:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --remux-video "mp4/aac" --merge-output-format "mp4" --concurrent-fragments "5" --live-from-start
+yt-dlp ^
+    -f "bv+ba/b" ^
+    -P "E:/Video/" ^
+    -o "%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --download-archive "E:/Video/Archive.txt" ^
+    --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
+    --write-info-json -o "infojson:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-link -o "link:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-description -o "description:%(uploader)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --remux-video "mp4/aac" --merge-output-format "mp4" ^
+    --downloader aria2c ^
+    --live-from-start ^
+https://www.youtube.com/playlist?list=PLsMtUWKCmBPRFzqglpk4YQlNFy8wzSXBN
 
 ## Twitch VOD With Chat Json and Chat Render [--no-warnings, --restrict-filenames, --skip-download]
 
-yt-dlp -f "bv+ba/b" -P "E:/Video/" -o "%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --download-archive "E:/Video/Archive.txt" --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json --write-info-json -o "infojson:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-link -o "link:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-description -o "description:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --write-thumbnail -o "thumbnail:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" --merge-output-format "mp4" --concurrent-fragments "5" --exec "after_video:C:\twitch.bat E:\Video\%(uploader)s\Past-Broadcasts\%(upload_date>%Y-%m)s\[Archive]\Chat\(%(upload_date>%Y-%m-%d)s)%(uploader)s[%(id)s]" https://www.twitch.tv/videos/1607660738
+yt-dlp ^
+    -f "bv+ba/b" ^
+    -P "E:/Video/" ^
+    -o "%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --download-archive "E:/Video/Archive.txt" ^
+    --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
+    --write-info-json -o "infojson:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-link -o "link:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-description -o "description:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --remux-video "mp4/aac" --merge-output-format "mp4" ^
+    --downloader aria2c ^
+    --exec ^
+        "after_video:C:\twitch.bat E:\Video\%(uploader)s\Past-Broadcasts\%(upload_date>%Y-%m)s\[Archive]\Chat\(%(upload_date>%Y-%m-%d)s)%(uploader)s[%(id)s]" ^
+https://www.twitch.tv/videos/1640219966
 
 ## TWITCH CHAT JSON
 
-TwitchDownloaderCLI -m ChatDownload -o "E:\VODS\DEMOLITION_D\Past Broadcasts\2022-10\2022⧸10⧸02 - Halloween Day 1 ｜｜ Resident Evil 8 (Part 1) uninstalling this game the moment i whoa [v1607660738].json" --id 1607660738 --embed-emotes
+TwitchDownloaderCLI ^
+    -m ChatDownload ^
+    --embed-emotes ^
+    --id "VODID" ^
+    -o "JSONPATH" ^
+    --threads 4
 
 ## TWITCH CHAT RENDER
 
-TwitchDownloaderCLI -m ChatRender -o "E:\VODS\DEMOLITION_D\Past Broadcasts\2022-10\1607660738chatrender3.mkv" --generate-mask true --background-color "#00000000" --outline true -i "E:\VODS\DEMOLITION_D\Past Broadcasts\2022-10\2022⧸10⧸02 - Halloween Day 1 ｜｜ Resident Evil 8 (Part 1) uninstalling this game the moment i whoa [v1607660738].json"
+TwitchDownloaderCLI ^
+    -m ChatRender ^
+    -i "JSONPATH" ^
+    -h 1080 -w 422 ^
+    --font-size 18 ^
+    -o "RENDERPATH" ^
+    --threads 4
 
-yt-dlp -f bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best -o "E:\Video\%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/%(upload_date>%Y/%m/%d)s - %(title)s [%(id)s].%(ext)s" --download-archive "E:\VODS/%(uploader)s/Archive\Archive.txt" --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json --concurrent-fragments "4" https://www.twitch.tv/videos/1607660738
+## STACK VIDEOS WITH FFMPEG [CPU GOES SUPERNOVA - DON'T USE UNLESS CONFIDENT]
 
-TwitchDownloaderCLI \
--m ChatDownload -o "E:\VODS\DEMOLITION_D\Past Broadcasts\2022-10\2022?10?02 - Halloween Day 1 || Resident Evil 8 (Part 1) uninstalling this game the moment i whoa [v1607660738].json" --id 1607660738 --embed-emotes
-
-set /p vodid="Enter VOD ID: "
-TwitchDownloaderCLI -m ChatDownload --id %vodid% -o %\*\_chat.json
-TwitchDownloaderCLI -m ChatRender -i %vodid%\_chat.json -h 1080 -w 422 --framerate 30 --update-rate 0 --font-size 18 -o %vodid%\_chat.mp4
-
-ffmpeg -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -filter_complex "hstack,format=yuv420p" -c:v libx264 -crf 18 "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4" -threads 4
-
-ffmpeg -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -filter_complex hstack "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4" -threads 4
-
-ffmpeg -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -filter_complex [0][1]scale2ref='oh*mdar':'if(lt(main_h,ih),ih,main_h)'[0s][1s] [1s][0s]scale2ref='oh*mdar':'if(lt(main_h,ih),ih,main_h)'[1s][0s] [0:a][1:a]amerge=inputs=2[a] [0s][1s]hstack,setsar=1 hstack "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4" -threads 4
-
-ffmpeg -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -filter_complex "[0:v][1:v]hstack=inputs=2[v]; -map "[1:a:0]" -ac 2 "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4" -threads 4
-
-ffmpeg -threads 1 -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -filter_complex "[0:v]scale=1920x1080[1];[1:v]scale=422x1080[2];[1][2]hstack" "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4"
-
-ffmpeg -threads 4 -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -filter_complex "[0][1]hstack" "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4"
-
-ffmpeg -threads 4 -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803].mp4" -i "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\[Archive]\Chat\(2022-10-19)DEMOLITION_D[v1628776803]-chat_render.mp4" -c:v libx264 -preset veryfast -crf 18 -pix_fmt yuv420p -filter_complex "[0][1]hstack" -threads:v 4 "E:\Video\DEMOLITION_D\Past-Broadcasts\2022-10\(2022⧸10⧸19) Halloween Day 11 ｜｜ Silent Hill Transmission 2022 [v1628776803]output.mp4"
+ffmpeg ^
+    -threads 4 ^
+    -i "INPUTPATH1" ^
+    -i "INPUTPATH2" ^
+    -c:v libx264 ^
+    -preset veryfast ^
+    -crf 18 ^
+    -pix_fmt yuv420p ^
+    -filter_complex "[0][1]hstack" ^
+    -threads:v 4 ^
+    "RENDERPATH"
