@@ -75,13 +75,13 @@ https://www.youtube.com/playlist?list=PLsMtUWKCmBPRFzqglpk4YQlNFy8wzSXBN
 yt-dlp ^
     -f "bv+ba/b" ^
     -P "E:/Video/" ^
-    -o "%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
     --download-archive "E:/Video/Archive.txt" ^
     --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
-    --write-info-json -o "infojson:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
-    --write-link -o "link:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-info-json -o "infojson:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-link -o "link:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
     --write-description -o "description:%(uploader)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
-    --write-thumbnail -o "thumbnail:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
     --remux-video "mp4/aac" --merge-output-format "mp4" ^
     --downloader aria2c ^
     --live-from-start ^
@@ -92,17 +92,17 @@ https://www.youtube.com/playlist?list=PLsMtUWKCmBPRFzqglpk4YQlNFy8wzSXBN
 yt-dlp ^
     -f "bv+ba/b" ^
     -P "E:/Video/" ^
-    -o "%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    -o "%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
     --download-archive "E:/Video/Archive.txt" ^
     --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json ^
-    --write-info-json -o "infojson:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
-    --write-link -o "link:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
-    --write-description -o "description:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
-    --write-thumbnail -o "thumbnail:%(uploader)s/Past-Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-info-json -o "infojson:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Info/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-link -o "link:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Links/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-description -o "description:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Descriptions/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
+    --write-thumbnail -o "thumbnail:%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s/[Archive]/Thumbnails/(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s" ^
     --remux-video "mp4/aac" --merge-output-format "mp4" ^
     --downloader aria2c ^
     --exec ^
-        "after_video:C:\twitch.bat E:\Video\%(uploader)s\Past-Broadcasts\%(upload_date>%Y-%m)s\[Archive]\Chat\(%(upload_date>%Y-%m-%d)s)%(uploader)s[%(id)s]" ^
+        "after_video:C:\twitch.bat E:\Video\%(uploader)s\Past Broadcasts\%(upload_date>%Y-%m)s\[Archive]\Chat\(%(upload_date>%Y-%m-%d)s)%(uploader)s[%(id)s]" ^
 https://www.twitch.tv/videos/1640219966
 
 ## TWITCH CHAT JSON
