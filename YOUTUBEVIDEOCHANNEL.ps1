@@ -1,5 +1,5 @@
-Write-Output "YouTube Video/YouTube Channel"
-$url = Read-Host -Prompt "Enter URL: "
+Write-Output "----------YouTube Video/YouTube Channel----------"
+$url = Read-Host -Prompt "Enter URL"
 $homePath = "E:/Video/"
 $archivePath = $homePath + "Archive.txt"
 $videoPath ="%(uploader)s"
