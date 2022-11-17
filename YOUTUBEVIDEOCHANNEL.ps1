@@ -11,6 +11,7 @@ yt-dlp `
     -o "$videoPath/$videoNameScheme" `
     --download-archive "$archivePath" `
     --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json `
+    --replace-in-metadata "title" "\|", " " `
     --write-info-json -o "infojson:$videoPath/[Archive]/Info/$videoNameScheme" `
     --write-subs -o "subtitle:$videoPath/[Archive]/Subtitles/$videoNameScheme" `
     --write-link -o "link:$videoPath/[Archive]/Links/$videoNameScheme" `
@@ -25,3 +26,5 @@ yt-dlp `
     --merge-output-format "mp4" `
     --downloader aria2c `
     --sponsorblock-mark all 
+
+PowerShell -NoExit
