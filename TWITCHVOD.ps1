@@ -13,6 +13,7 @@ $JsonPath = $homePath + $videoPath + "/[Archive]/Chat"
 $RenderPath = $homePath + $videoPath + "/[Chat]"
 $chatJson = $JsonPath + "/(%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s]" 
 $chatRender = $RenderPath + "/(%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s]" 
+
 yt-dlp `
     $url `
     -f "bv+ba/b" `
@@ -21,6 +22,7 @@ yt-dlp `
     --download-archive "$archivePath" `
     --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json `
     --replace-in-metadata "title" "\|", " " `
+    --replace-in-metadata "title" "'", ";" `
     --write-info-json -o "infojson:$videoPath/[Archive]/Info/$videoNameScheme" `
     --write-link -o "link:$videoPath/[Archive]/Links/$videoNameScheme" `
     --write-description -o "description:$videoPath/[Archive]/Descriptions/$videoNameScheme" `
