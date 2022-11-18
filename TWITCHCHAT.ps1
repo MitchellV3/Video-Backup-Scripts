@@ -1,10 +1,15 @@
 Write-Output "----------Twitch Chat----------"
-mkdir -p $args[3]
-mkdir -p $args[4]
+
+New-Item -ItemType Directory -Force -Path $args[3]
+New-Item -ItemType Directory -Force -Path $args[4]
+
 $jsonPath = $args[0] + "-chat.json" -replace "'", ""
 $renderPath = $args[1] + "-chat_render.mp4" -replace "'", ""
 $vodId = $args[2].Split("/")[-1]
+
+Write-Output ""
 Write-Output $vodId
+
 TwitchDownloaderCLI `
     -m ChatDownload `
     --embed-emotes `
