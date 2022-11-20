@@ -31,13 +31,13 @@ if ($downloadType -eq "1" -or $downloadType -eq "4") {
         --font-size 18 `
         -o "$renderPath" `
         --threads 4
-} elseif ($downloadType -eq "2") {
+} elseif ($downloadType -eq "2" -or $downloadType -eq "5") {
     TwitchDownloaderCLI `
         -m ChatDownload `
         --embed-emotes `
         --id $vodId `
         -o "$jsonPath" `
         --threads 4
-}
+} 
 
 PowerShell -NoExit

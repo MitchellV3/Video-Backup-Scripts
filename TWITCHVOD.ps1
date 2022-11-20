@@ -5,6 +5,7 @@ Write-Output "1 - VOD + Chat Render (JSON + MP4)"
 Write-Output "2 - VOD + Chat Archive (JSON)"
 Write-Output "3 - VOD Only"
 Write-Output "4 - Chat Render Only"
+Write-Output "5 - Chat Archive Only"
 Write-Output ""
 $downloadType = Read-Host -Prompt "Select Download Type"
 
@@ -55,7 +56,7 @@ if ($downloadType -eq "1" -or $downloadType -eq "2") {
         --write-description -o "description:$videoPath/[Archive]/Descriptions/$videoNameScheme" `
         --write-thumbnail -o "thumbnail:$videoPath/[Archive]/Thumbnails/$videoNameScheme" `
         --downloader "aria2c"
-} elseif ($downloadType -eq "4") {
+} elseif ($downloadType -eq "4" -or $downloadType -eq "5") {
     yt-dlp `
         $url `
         -f "bv+ba/b" `
