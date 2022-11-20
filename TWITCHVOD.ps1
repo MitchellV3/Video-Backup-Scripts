@@ -16,7 +16,7 @@ Write-Output $url
 $homePath = "E:/Video/"
 $archivePath = $homePath + "TwitchArchive.txt"
 $videoPath = "%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s"
-$videoNameScheme = "(%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s"
+$videoNameScheme = "(%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s].%(ext)s"
 
 $chatDownloader = $PSScriptRoot + "\TWITCHCHAT.ps1"
 $JsonPath = $homePath + $videoPath + "/[Archive]/Chat"
@@ -74,8 +74,18 @@ if ($downloadType -eq "1" -or $downloadType -eq "2") {
         --skip-download `
         --exec "after_video:powershell $chatDownloader '$chatJson' '$chatRender' $url '$JsonPath' '$RenderPath' $downloadType" 
 } else {
+    Write-Output ""
     Write-Output "Invalid Download Type"
+    Write-Output ""
+    Write-Host -NoNewLine 'Press any key to exit...';
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+    exit
 }
 
+Write-Output ""
+Write-Output "Process Complete"
+Write-Output ""
+Write-Host -NoNewLine 'Press any key to exit...';
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+exit
 
-PowerShell -NoExit

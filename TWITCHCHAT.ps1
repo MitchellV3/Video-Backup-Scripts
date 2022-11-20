@@ -39,5 +39,3 @@ if ($downloadType -eq "1" -or $downloadType -eq "4") {
         -o "$jsonPath" `
         --threads 4
 } 
-
-PowerShell -NoExit
