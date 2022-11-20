@@ -1,20 +1,21 @@
 Write-Output "----------YouTube Playlists----------"
 Write-Output ""
 Write-Output "***Playlist Options***"
-Write-Output "1) YouTube Playlist - One Channel"
-Write-Output "2) YouTube Playlist - Multiple Channels (ie. "Music" Playlist)"
+Write-Output "1 - YouTube Playlist - One Channel"
+Write-Output "2 - YouTube Playlist - Multiple Channels (ie. "Music" Playlist)"
 Write-Output ""
 $playlistType = Read-Host -Prompt "Select Playlist Type"
 
 $homePath = "E:/Video/"
 $archivePath = $homePath + "PlaylistArchive.txt"
-$videoNameScheme = "%(playlist_index)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s"
+$videoNameScheme = "%(playlist_index)s - (%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s].%(ext)s"
+##$videoNameScheme = "%(video_autonumber)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s"         --playlist-reverse `
 
 if ($playlistType -eq "1"){
 
     $videoPath = "%(uploader)s/%(playlist)s"
     $url = Read-Host -Prompt "Enter URL"
-    
+     
     yt-dlp `
         $url `
         -f "bv+ba/b" `
