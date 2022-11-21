@@ -18,7 +18,7 @@ $archivePath = $homePath + "TwitchArchive.txt"
 $videoPath = "%(uploader)s/Past Broadcasts/%(upload_date>%Y-%m)s"
 $videoNameScheme = "(%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s].%(ext)s"
 
-$chatDownloader = $PSScriptRoot + "\TWITCHCHAT.ps1"
+$chatDownloader = $PSScriptRoot + "\TWITCHCHATFETCHER.ps1"
 $JsonPath = $homePath + $videoPath + "/[Archive]/Chat"
 $RenderPath = $homePath + $videoPath + "/[Chat]"
 $chatJson = $JsonPath + "/(%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s]" 
