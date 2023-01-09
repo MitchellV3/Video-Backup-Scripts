@@ -33,8 +33,12 @@ if ($downloadType -eq "1" -or $downloadType -eq "2") {
         -o "$videoPath/$videoNameScheme" `
         --download-archive "$archivePath" `
         --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json `
-        --replace-in-metadata "title" "\|", " " `
+        --replace-in-metadata "title" "\|", "-" `
         --replace-in-metadata "title" "'", ";" `
+        --replace-in-metadata "title" ":", " -" `
+        --replace-in-metadata "title" "\\", "-" `
+        --replace-in-metadata "title" "\?", "." `
+        --replace-in-metadata "title" "\/", "." `
         --write-info-json -o "infojson:$videoPath/[Archive]/Info/$videoNameScheme" `
         --write-link -o "link:$videoPath/[Archive]/Links/$videoNameScheme" `
         --write-description -o "description:$videoPath/[Archive]/Descriptions/$videoNameScheme" `
@@ -49,8 +53,12 @@ if ($downloadType -eq "1" -or $downloadType -eq "2") {
         -P "$homePath" `
         -o "$videoPath/$videoNameScheme" `
         --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json `
-        --replace-in-metadata "title" "\|", " " `
+        --replace-in-metadata "title" "\|", "-" `
         --replace-in-metadata "title" "'", ";" `
+        --replace-in-metadata "title" ":", " -" `
+        --replace-in-metadata "title" "\\", "-" `
+        --replace-in-metadata "title" "\?", "." `
+        --replace-in-metadata "title" "\/", "." `
         --write-info-json -o "infojson:$videoPath/[Archive]/Info/$videoNameScheme" `
         --write-link -o "link:$videoPath/[Archive]/Links/$videoNameScheme" `
         --write-description -o "description:$videoPath/[Archive]/Descriptions/$videoNameScheme" `
@@ -63,9 +71,12 @@ if ($downloadType -eq "1" -or $downloadType -eq "2") {
         -P "$homePath" `
         -o "$videoPath/$videoNameScheme" `
         --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json `
-        --replace-in-metadata "title" "\|", " " `
+        --replace-in-metadata "title" "\|", "-" `
         --replace-in-metadata "title" "'", ";" `
-        --replace-in-metadata "title" ":", ";" `
+        --replace-in-metadata "title" ":", " -" `
+        --replace-in-metadata "title" "\\", "-" `
+        --replace-in-metadata "title" "\?", "." `
+        --replace-in-metadata "title" "\/", "." `
         --write-info-json -o "infojson:$videoPath/[Archive]/Info/$videoNameScheme" `
         --write-link -o "link:$videoPath/[Archive]/Links/$videoNameScheme" `
         --write-description -o "description:$videoPath/[Archive]/Descriptions/$videoNameScheme" `

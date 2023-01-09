@@ -1,3 +1,7 @@
+#TODO: 
+#Ability to add a custom title
+#Ability to make a custom folder
+#Ability to read a file with a list of videos
 Write-Output "----------YouTube Video/YouTube Channel----------"
 Write-Output ""
 Write-Output "***Organization Options***"
@@ -42,7 +46,7 @@ yt-dlp `
     -o "$videoPath/$videoNameScheme" `
     --download-archive "$archivePath" `
     --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --embed-info-json `
-    --replace-in-metadata "title" "\|", " " `
+    --replace-in-metadata "title" "\|", "-" `
     --write-info-json -o "infojson:$videoPath/[Archive]/Info/$videoNameScheme" `
     --write-subs -o "subtitle:$videoPath/[Archive]/Subtitles/$videoNameScheme" `
     --write-link -o "link:$videoPath/[Archive]/Links/$videoNameScheme" `
@@ -51,10 +55,12 @@ yt-dlp `
     -o "chapter:$videoPath/[Archive]/Chapters/$videoNameScheme" `
     -o "pl_description:$videoPath/[Archive]/Descriptions/Channel Description/$videoNameScheme" `
     -o "pl_infojson:$videoPath/[Archive]/Info/Channel Info/$videoNameScheme" `
+    -o "pl_thumbnail:$videoPath/[Archive]/Thumbnails/Channel Icon/$videoNameScheme" `
     --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" `
     --remux-video "mp4/aac" `
     --merge-output-format "mp4" `
-    --downloader aria2c `
+    --check-formats `
+    --downloader "aria2c" `
     --sponsorblock-mark all 
 
 Write-Output ""

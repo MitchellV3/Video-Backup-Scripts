@@ -8,7 +8,8 @@ $playlistType = Read-Host -Prompt "Select Playlist Type"
 
 $homePath = "E:/Video/"
 $archivePath = $homePath + "PlaylistArchive.txt"
-$videoNameScheme = "%(playlist_index)s - (%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s].%(ext)s"
+$videoNameScheme = "(%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s].%(ext)s"
+##$videoNameScheme = "%(playlist_index)s - (%(upload_date>%Y-%m-%d)s) %(title)s [%(id)s].%(ext)s"
 ##$videoNameScheme = "%(video_autonumber)s - (%(upload_date>%Y/%m/%d)s) %(title)s [%(id)s].%(ext)s"         --playlist-reverse `
 
 if ($playlistType -eq "1"){
@@ -34,7 +35,8 @@ if ($playlistType -eq "1"){
         -o "pl_infojson:$videoPath/[Archive]/Info/Playlist Info/$videoNameScheme" `
         --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" `
         --remux-video "mp4/aac" --merge-output-format "mp4" `
-        --downloader aria2c `
+        --check-formats `
+        --downloader "aria2c" `
         --sponsorblock-mark all 
 }
 
@@ -62,7 +64,8 @@ if ($playlistType -eq "2"){
         -o "pl_infojson:$videoPath/[Archive]/Info/Playlist Info/$videoNameScheme" `
         --write-comments --extractor-args "youtube:comment_sort=top;max_comments=50,all,0,0" `
         --remux-video "mp4/aac" --merge-output-format "mp4" `
-        --downloader aria2c `
+        --check-formats `
+        --downloader "aria2c" `
         --sponsorblock-mark all 
 }
 
